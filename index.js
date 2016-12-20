@@ -28,8 +28,6 @@ function expresBruteFailoverMain(params){
       const expressBruteInstance = new ExpressBrute(expressBruteOptions, new ExpressBrute.MemoryStore());
       const redisClient = redis.createClient( redisOptions );
 
-      //let expressBruteInstance = new ExpressBrute(new  bruteRedisStore({client: redisClient}) , expressBruteOptions);
-
       redisClient.on('connect', ()=>{ });
 
       redisClient.on('error', ()=>{
@@ -46,4 +44,4 @@ function expresBruteFailoverMain(params){
       return expressBruteInstance;
     }
 
-module.exports = expresBruteFailoverMain;
+    module.exports = expresBruteFailoverMain;
