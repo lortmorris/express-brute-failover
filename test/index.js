@@ -1,15 +1,5 @@
-# express-brute-failover
-This is a easy and simple version of express-brute with failover (when using redis/memory);
-
-# install
-```bash
-$ npm install express-brute-failover
-```
-
-# example
-```js
 const express = require('express');
-const EBF = require('express-brute-failover');
+const EBF = require('../index.js');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
@@ -38,8 +28,3 @@ app.get('/', (req, res, next)=> {
 server.listen(5000, ()=>{
   console.log(`listen on *:5000`);
 });
-
-```
-
-# Powered by
-[César Casas](https://ar.linkedin.com/in/cesarcasas)
