@@ -11,8 +11,8 @@ function expresBruteFailoverMain(params){
     {host: '127.0.0.1', port: 6379},
     params.redis || {});
 
-    let failCallback = (a,b)=>{
-      console.log(`se cago la fruta en brute: `, a,b);
+    let failCallback = ()=>{
+      debug('Error failCallback');
     };
 
     const expressBruteOptions = Object.assign({},
@@ -25,7 +25,7 @@ function expresBruteFailoverMain(params){
       },
       params.brute || {});
 
-      const expressBruteInstance = new ExpressBrute(expressBruteOptions, new ExpressBrute.MemoryStore());
+      const expressBruteInstance = new ExpressBrute(new ExpressBrute.MemoryStore(), expressBruteOptions);
       const redisClient = redis.createClient( redisOptions );
 
       redisClient.on('connect', ()=>{ });
